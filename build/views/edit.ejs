@@ -1,0 +1,74 @@
+<head>
+    <title>Google keep-Edit</title>
+    <link rel="icon" type="image/x-icon" href="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png">
+    <link rel="stylesheet" href="../../build/styles/output.css">
+</head>
+<body>
+    <header>
+        <nav class="py-2 w-full top-0 bg-white  fixed  text-slate-600 shadow-gray-200 shadow-md">
+            <div class="inline ml-8">
+                <i class="hamburger cursor-pointer   fa-solid fa-bars"></i>
+                <img class=" ml-4 w-10 -mt-2 inline sm:hidden bg-url("")"
+                    src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png" alt="keep">
+                <span class=" navheading  mt-1  font-roboto text-xl sm:hidden ">Edit</span>
+            </div>
+            <div class="inline ml-16 sm:ml-2 ">
+                <button>
+                    <i class="fa-solid fa-magnifying-glass absolute top-6 left-[58rem] sm:hidden"></i>
+                </button>
+                <input type="text"
+                    class="outline-none resize-none cursor-pointer p-2 w-[54%] h-[3rem] bg-gray-100 rounded-lg shadow-sm hover:bg-white hover:border-none active:border-transparent sm:w-[60%]"
+                    placeholder="Search">
+            </div>
+            <div class="ml-16 inline sm:ml-2 ">
+                <a class="sm:hidden"  href="#container"><i class="fa-solid fa-rotate-right ml-6 text-xl  "></i></a>
+                <a class="sm:hidden" href="#"><i class="fa-solid fa-equals ml-6 text-2xl "></i></a>
+                <a class="sm:hidden" href="#"><i class="fa-solid fa-gear ml-6 text-xl "></i></a>
+                <a class="sm:hidden ml-6" href="https://www.google.co.in/intl/en/about/products" target="blank">
+                    <div class="inline text-xl sm:hidden">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </a>
+                <a href="#"
+                    class="ml-6 sm:ml-1" target="blank"><img class=" inline w-8 rounded-full" src="./Images/IMG_20220916_122453_736.jpg" alt="profile photo"></a>
+                <!-- <hr class="mt-3"> -->
+            </div>
+        </nav>
+
+    </header>
+
+
+
+    <section class="editnotesection   mt-28 w-[35%] m-auto sm:ml-[4rem] border-2 border-none shadow-lg rounded-md">
+        <div  class="h-10 p-2 bg-blue-600 rounded-t-lg">
+            <h3 class="text-white">Edit your notes here</h3>
+        </div> 
+        <div class="p-3">
+            <form action="/editnote" method="post">
+                <div>
+                    <label>Title</label>
+                    <input type="text" name="title"
+                class=" edittitlebox inline outline-none resize-none p-2 rounded-lg shadow-sm cursor-pointer  text-black  w-full h-[2.5rem] bg-slate-100 border-none border-white  hover:bg-white hover:border-none active:border-transparent"
+                placeholder="Take a note..." value="<%= note.title %>">
+                </div>
+                <div class="mt-5">
+                    <label>Note</label>
+                    <textarea name="note" class="editnotebox text-red-700 rounded-lg bg-slate-100 shadow-sm outline-none resize-none p-2 w-full hover:bg-white hover:border-none active:border-transparent"   
+                      ><%= note.note %></textarea>
+                </div>
+                <div>
+                    <input type="text" name="id"
+                class="edituniqueid addnotebox hidden inline outline-none resize-none p-2 cursor-pointer  text-black  w-full h-[2.5rem] bg-white border-none border-white  hover:bg-white hover:border-none active:border-transparent"
+                placeholder="Unique id"  value="<%= note._id %>">
+                </div>
+                <div class="flex justify-center">
+                    <button class="bg-red-500 text-white p-2 rounded-md" type="submit">Update</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script src="https://kit.fontawesome.com/38b951bfd3.js" crossorigin="anonymous"></script>
+</body>

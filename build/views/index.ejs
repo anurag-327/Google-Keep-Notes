@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Keep</title>
+    <link rel="icon" type="image/x-icon" href="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png">
+    <link rel="stylesheet" href="../../build/styles/output.css">
+</head>
+
+<body id="container" class="bg-slate-50 ">
+    <header>
+        <nav class="py-2 w-full top-0 bg-white  fixed  text-slate-600 shadow-gray-200 shadow-md">
+            <div class="inline ml-8">
+                <i class="hamburger cursor-pointer   fa-solid fa-bars"></i>
+                <img class=" ml-4 w-10 -mt-2 inline sm:hidden bg-url("")"
+                    src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png" alt="keep">
+                <span class=" navheading  mt-1  font-roboto text-xl sm:hidden ">Keep</span>
+            </div>
+            <div class="inline ml-16 sm:ml-2 ">
+                <button>
+                    <i class="fa-solid fa-magnifying-glass absolute top-6 left-[58rem] sm:hidden"></i>
+                </button>
+                <input type="text"
+                    class="outline-none resize-none cursor-pointer p-2 w-[54%] h-[3rem] bg-gray-100 rounded-lg shadow-sm hover:bg-white hover:border-none active:border-transparent sm:w-[60%]"
+                    placeholder="Search">
+            </div>
+            <div class="ml-16 inline sm:ml-2 ">
+                <a class="sm:hidden"  href="#container"><i class="fa-solid fa-rotate-right ml-6 text-xl  "></i></a>
+                <a class="sm:hidden" href="#"><i class="fa-solid fa-equals ml-6 text-2xl "></i></a>
+                <a class="sm:hidden" href="#"><i class="fa-solid fa-gear ml-6 text-xl "></i></a>
+                <a class="sm:hidden ml-6" href="https://www.google.co.in/intl/en/about/products" target="blank">
+                    <div class="inline text-xl sm:hidden">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </a>
+                <a href="#"
+                    class="ml-6 sm:ml-1" target="blank"><img class=" inline w-8 rounded-full" src="./Images/IMG_20220916_122453_736.jpg" alt="profile photo"></a>
+                <!-- <hr class="mt-3"> -->
+            </div>
+        </nav>
+
+    </header>
+
+    <section class="mt-16">
+        <div class="flex  ">
+            <div class="w-[25%] fixed mt-2   largedevice hamburgermenu sm:mt-0 sm:ml-0 sm:w-[80%] sm:h-[100%] sm:hidden sm:bg-white">
+                <a href="/">
+                <div class="togglesidebardiv notes w-[75%]  h-12 bg-orange-200 hover:bg-orange-100 rounded-r-full cursor-pointer sm:bg-transparent sm:rounded-r-full  sm:hover:bg-none    sm:w-[100%]">
+
+                        <i class="togglesidebaricon ml-8 mt-4 mr-8 fa-regular fa-lightbulb sm:hidden"></i>
+                        <span class="togglesidebarmsg font-roboto sm:text-black font-semibold">Notes</span>
+                        <span class="hidden font-roboto sm:text-black font-semibold sm:inline -ml-10">Notes</span>
+                    </div> 
+                </a>
+                <a href="/reminder">
+                <div
+                    class=" togglesidebardiv reminder w-[75%]   h-12 hover:bg-orange-100 hover:rounded-r-full cursor-pointer  sm:hover:bg-none   sm:bg-none sm:w-[100%] ">
+
+                        <i class="togglesidebaricon ml-8 mt-4 mr-8 fa-regular fa-bell"></i>
+                        <span class="togglesidebarmsg font-roboto font-semibold ">Reminder</span>
+                        <span class="hidden font-roboto font-semibold sm:inline -ml-20 ">Reminder</span>
+                    </div>
+                </a>
+                <a href="/details">
+                <div
+                    class="togglesidebardiv detail w-[75%]  h-12 hover:bg-orange-100 hover:rounded-r-full cursor-pointer  sm:bg-none sm:w-[100%]">
+
+                        <i class="togglesidebaricon ml-8 mt-4 mr-8 fa-solid fa-tag"></i>
+                        <span class="togglesidebarmsg font-roboto font-semibold">Details</span>
+                        <span class="hidden font-roboto font-semibold sm:inline -ml-8">Details</span>
+                    </div>
+                </a>
+                <a href="/">
+                <div sm:hover:bg-none
+                    class="togglesidebardiv editlabel w-[75%]  h-12 hover:bg-orange-100 hover:rounded-r-full cursor-pointer  sm:hover:bg-none sm:bg-none sm:w-[100%]">
+
+                        <i class="togglesidebaricon ml-8 mt-4 mr-8 fa-solid fa-pen"></i>
+                        <span class="togglesidebarmsg font-roboto font-semibold">Edit labels</span>
+                        <span class="hidden font-roboto font-semibold sm:inline -ml-8">Edit labels</span>
+                    </div>
+                </a>
+                <a href="/archive">
+                <div
+                    class="togglesidebardiv archive w-[75%]  h-12 hover:bg-orange-100 hover:rounded-r-full cursor-pointer  sm:hover:bg-none sm:bg-none sm:w-[100%]">
+                        <i class="togglesidebaricon ml-8 mt-4 mr-8 fa-solid fa-box-archive"></i>
+                        <span class="togglesidebarmsg font-roboto font-semibold ">Archive</span>
+                        <span class="hidden font-roboto font-semibold sm:inline -ml-8">Archive</span>
+                    </div>
+                </a>
+                <a href="/trash">
+                <div
+                    class="togglesidebardiv trash w-[75%]  h-12 hover:bg-orange-100 hover:rounded-r-full cursor-pointer sm:hover:bg-none sm:bg-none sm:w-[100%] ">
+
+                        <i class=" togglesidebaricon ml-8 mt-4 mr-8 fa-regular fa-trash-can"></i>
+                        <span class="togglesidebarmsg font-roboto font-semibold  ">Trash</span>
+                        <span class="hidden font-roboto font-semibold sm:inline -ml-8">Trash</span>
+                    </div>
+                </a>
+            </div>
+
+            
+            
+            <div class="w-[100%] displaysection  flex flex-col">
+                <div class="addnotedisplay  ml-[25rem] p-1 mt-4  rounded-lg shadow-gray-600 shadow-md w-[53%] sm:ml-[5rem] sm:w-[70%]">
+                    <form action="addnote" method="post">
+                    <div>
+                        <input type="text" name="hii"
+                            class=" addnotebox inline outline-none resize-none p-2 cursor-pointer  text-black  w-[100%] h-[2.5rem] bg-white border-none border-white  hover:bg-white hover:border-none active:border-transparent"
+                            placeholder="Take a note...">
+                    </div>
+                        <div>
+                            <input type="text" name="title"
+                            class=" titlebox hidden outline-none resize-none p-2 cursor-pointer sm:-ml-10  text-black  w-[95%] h-[2.5rem] bg-white border-none border-white  hover:bg-white hover:border-none active:border-transparent"
+                            placeholder="Title">
+                            <a href="#" class=" ml-3 pinicon hidden  sm:hidden"><i class=" fa-solid fa-thumbtack"></i></a>
+                            
+                        </div>
+                    <textarea name="note"
+                    class=" addnote hidden p-2 mt-2  border-transparent outline-none overflow-auto resize-y overflow-x-clip  w-[100%] h-32  active:border-transparent "
+                    placeholder="Take a note..."></textarea>
+                    <div class=" addnoteicon hidden">
+                        <!-- <div class="inline">
+                            <a class=" mx-4 sm:mx-1" href="#"><i class="fa-solid fa-user-plus "></i></a>
+                            <a class=" mx-4 sm:mx-1" href="#"><i class="fa-regular fa-bell "></i></a>
+                            <a class=" mx-4 sm:mx-1" href="#"><i class="fa-solid fa-palette "></i></a>
+                            <a class=" mx-4 sm:hidden" href="#"><i class="fa-regular fa-image "></i></a>
+                            <a class=" mx-4 sm:mx-1" href="#"><i class="fa-solid fa-box-archive "></i></a>
+                            <a class=" mx-4 sm:mx-1" href="#"><i class="fa-solid fa-ellipsis-vertical "></i></a>
+                            <a class=" mx-4 sm:mx-1" href="#"><i class="fa-solid fa-arrow-rotate-left "></i></a>
+                            <a class=" mx-4 sm:mx-1" href="#"><i class="fa-solid fa-arrow-rotate-right "></i></a>
+                        </div> -->
+                        <button type="submit" class=" addnotebtn inline ml-40 sm:ml-12 text-slate-700 hover:bg-gray-200 w-[10%] p-1 ">Add
+                        </button>
+                    </form>
+                    <a href="#" class=" closeaddnote inline ml-1 sm:ml-10 text-slate-700 hover:bg-gray-200 w-[10%] p-1">Close</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="notessection mt-10 flex flex-wrap ml-[22rem] sm:ml-[5rem] mb-28">
+        <% for(let i of notes){ %>
+            <div>
+                <div class="notescontent hover:bg-white   w-60 ml-3 mt-3 rounded-md border-2 bg-wjite  shadow-slate-200 shadow-md" data-id="<%= i._id %>">
+                    <div class="notesheader  p-2 w-[100%] h-auto  ">
+                        <h4 class="font-bold inline notestitle  text-fuchsia-800" data-id="<%= i._id %>"><%= i.title %></h4>
+                        <!-- <a href="/deletenote/<%= i.id %>"><i class="delete float-right cursor-pointer fa-regular fa-trash-can mt-1 " data-id="<%= i._id %>"   ></i></a> -->
+                        <!-- <a href="/editnote/<%=i._id %>"  class="editbtn float-right mr-4" data-id="<%= i._id %>"><i class="fa-regular fa-pen-to-square"></i></a> -->
+                        <hr class="my-2">
+                        <div class="overflow-hidden min-h-[10rem]">
+                        <p class="notesdescription text-black block h-auto whitespace-pre-wrap text-ellipsis overflow-x-auto overflow-y-auto " data-id="<%= i._id %>"><%= i.note %></p>
+                        </div>
+                    </div>
+                    <div class="p-2 " >
+                        <hr class="pb-1">
+                        <!-- <span class="font-semibold text-yellow-600 "><%= i.updatedAt %></span> -->
+                        <div class="text-center justify-evenly flex">
+                            <div>
+                                <a href="/deletenote/<%= i.id %>"><i class="delete   cursor-pointer fa-regular fa-trash-can  " data-id="<%= i._id %>"   ></i></a>
+                            </div>
+                            <div>
+                                <a href="/editnote/<%=i._id %>"  class="editbtn   ml-4" data-id="<%= i._id %>"><i class="fa-regular fa-pen-to-square"></i></a>
+                            </div>
+                            <div>
+                                <a href="/archivenote/<%=i._id %>"  class="editbtn   ml-4" data-id="<%= i._id %>"><i class="fa-solid fa-box-archive"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%} %>
+
+    </section>
+
+    
+    <footer class=" bottom-0 fixed w-full text-center text-white" style="background-color: #f1f1f1;">
+        <div class="container pt-2">
+          <div class="flex justify-center mb-2 space-x-2">
+                <div><a href="#!" class="mr-9 text-gray-800">
+                    <i class="fa-brands fa-facebook"></i>
+                </a></div>
+                <div><a href="#!" class="mr-9 text-gray-800">
+                    <i class="fa-brands fa-instagram"></i>
+                </a></div>
+                <div><a href="#!" class="mr-9 text-gray-800">
+                    <i class="fa-brands fa-github"></i>
+                </a></div>
+                <div><a href="#!" class="mr-9 text-gray-800">
+                    <i class="fa-brands fa-twitter"></i>
+                </a></div>
+                <div> <a href="#!" class="mr-9 text-gray-800">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a></div>
+                <div> <a href="#!" class="text-gray-800">
+                    <i class="fa-brands fa-google"></i>
+                </a></div>
+            </div>          
+          </div>
+        </div>
+      
+        <div class="text-center text-gray-700 p-1" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2021 Copyright:
+          <!-- <a class="text-gray-800" href="#">made by anurag</a> -->
+        </div>
+      </footer>
+
+    <script src="https://kit.fontawesome.com/38b951bfd3.js" crossorigin="anonymous"></script>
+    <script src="../../build/js/script.js"></script>
+</body>
+
+</html>
