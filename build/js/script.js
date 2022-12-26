@@ -275,3 +275,35 @@ emptytrashbtn.addEventListener('click', () => {
     // trashsection.classList.add
     window.location.reload();
 })
+
+const loginheader=document.querySelector(".loginheader");
+const signupheader=document.querySelector(".signupheader");
+const loginswitch=document.querySelector(".loginswitch");
+const signupswitch=document.querySelector(".signupswitch");
+const namefield=document.querySelector(".namefield");
+const emailfield=document.querySelector(".emailfield");
+const passwordfield=document.querySelector(".passwordfield");
+const checkboxfield=document.querySelector(".checkboxfield");
+const loginbutton=document.querySelector(".loginbutton");
+const signupbutton=document.querySelector(".signupbutton");
+console.log(loginbutton,signupbutton);
+
+signupswitch.addEventListener('click',() =>
+{
+    alert("hii");
+    loginheader.classList.add("hidden");
+    signupheader.classList.remove("header");
+    namefield.classList.remove("hidden");
+    checkboxfield.classList.add("hidden");
+    loginbutton.classList.add("hidden");
+    signupbutton.classList.remove("hidden");
+})
+loginswitch.addEventListener('click',() =>
+{
+    loginheader.classList.remove("hidden");
+    signupheader.classList.add("header");
+    namefield.classList.add("hidden");
+    checkboxfield.classList.remove("hidden");
+    loginbutton.classList.remove("hidden");
+    signupbutton.classList.add("hidden");
+})

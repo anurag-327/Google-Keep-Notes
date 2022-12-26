@@ -2,11 +2,13 @@
 module.exports =
 {
   mode: 'jit',
-  content: ["./*.{ejs,js,css}", "./**/*.{ejs,js,css}"],
+  content: ["./*.{ejs,html,js,css}", "./**/*.{ejs,html,js,css}"],
   theme: {
     extend: {
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
+        lobster: ["Lobster", "cursive"]
       },
     },
     screens: {

@@ -20,15 +20,15 @@
                 <span class=" navheading  mt-1  font-roboto text-xl sm:hidden ">Details</span>
             </div>
             <div class="inline ml-16 sm:ml-2 ">
-                <button>
+                <!-- <button>
                     <i class="fa-solid fa-magnifying-glass absolute top-6 left-[58rem] sm:hidden"></i>
-                </button>
+                </button> -->
                 <input type="text"
                     class="outline-none resize-none cursor-pointer p-2 w-[54%] h-[3rem] bg-gray-100 rounded-lg shadow-sm hover:bg-white hover:border-none active:border-transparent sm:w-[60%]"
                     placeholder="Search">
             </div>
             <div class="ml-16 inline sm:ml-2 ">
-                <a class="sm:hidden"  href="#container"><i class="fa-solid fa-rotate-right ml-6 text-xl  "></i></a>
+                <!-- <a class="sm:hidden"  href="#container"><i class="fa-solid fa-rotate-right ml-6 text-xl  "></i></a>
                 <a class="sm:hidden" href="#"><i class="fa-solid fa-equals ml-6 text-2xl "></i></a>
                 <a class="sm:hidden" href="#"><i class="fa-solid fa-gear ml-6 text-xl "></i></a>
                 <a class="sm:hidden ml-6" href="https://www.google.co.in/intl/en/about/products" target="blank">
@@ -39,8 +39,12 @@
                     </div>
                 </a>
                 <a href="#"
-                    class="ml-6 sm:ml-1" target="blank"><img class=" inline w-8 rounded-full" src="./Images/IMG_20220916_122453_736.jpg" alt="profile photo"></a>
+                    class="ml-6 sm:ml-1" target="blank"><img class=" inline w-8 rounded-full" src="./Images/IMG_20220916_122453_736.jpg" alt="profile photo"></a> -->
                 <!-- <hr class="mt-3"> -->
+                <div class="inline mr-20 ml-10 bg-pink-300">
+                    <a href="/signout" id="signout" class=" absolute top-2 right-28  float-right text-blue-400 text-4xl ml-6 hover:text-red-900 "><i class="fa-solid fa-right-from-bracket"></i></a>
+                    <label for="signout" class="float-right absolute top-10 right-24 hover:inline hover:text-red-700">Sign Out</label>
+                </div>
             </div>
         </nav>
 
@@ -49,7 +53,7 @@
     <section class="mt-16">
         <div class="flex  ">
             <div class="w-[25%] fixed mt-2   largedevice hamburgermenu sm:mt-0 sm:ml-0 sm:w-[80%] sm:h-[100%] sm:hidden sm:bg-white">
-                <a  href="/">
+                <a  href="/user/">
                 <div class="togglesidebardiv notes w-[75%]  h-12  hover:bg-orange-100 rounded-r-full cursor-pointer sm:bg-transparent sm:rounded-r-full  sm:hover:bg-none    sm:w-[100%]">
 
                         <i class="togglesidebaricon ml-8 mt-4 mr-8 fa-regular fa-lightbulb sm:hidden"></i>
@@ -57,7 +61,7 @@
                         <span class="hidden font-roboto sm:text-black font-semibold sm:inline -ml-10">Notes</span>
                     </div> 
                 </a>
-                <a href="/reminder">
+                <a href="/user/reminder">
                 <div
                     class=" togglesidebardiv reminder w-[75%]   h-12 hover:bg-orange-100 hover:rounded-r-full cursor-pointer  sm:hover:bg-none   sm:bg-none sm:w-[100%] ">
                         <i class="togglesidebaricon ml-8 mt-4 mr-8 fa-regular fa-bell"></i>
@@ -66,7 +70,7 @@
                         
                     </div>
                 </a>
-                <a href="/details">
+                <a href="/user/details">
                 <div
                     class="togglesidebardiv detail w-[75%]  h-12 rounded-r-full bg-orange-200 hover:bg-orange-100 hover:rounded-r-full cursor-pointer  sm:bg-none sm:w-[100%]">
 
@@ -75,7 +79,7 @@
                         <span class="hidden font-roboto font-semibold sm:inline -ml-8">Details</span>
                     </div>
                 </a>
-                <a href="/">
+                <a href="/user/">
                 <div sm:hover:bg-none
                     class="togglesidebardiv editlabel w-[75%]  h-12 hover:bg-orange-100 hover:rounded-r-full cursor-pointer  sm:hover:bg-none sm:bg-none sm:w-[100%]">
                         
@@ -84,7 +88,7 @@
                         <span class="hidden font-roboto font-semibold sm:inline -ml-8">Edit labels</span>
                     </div>
                 </a>
-                <a href="/archive">
+                <a href="/user/archive">
                 <div
                     class="togglesidebardiv archive w-[75%]  h-12  hover:bg-orange-100 hover:rounded-r-full cursor-pointer  sm:hover:bg-none sm:bg-none sm:w-[100%]">
                         <i class="togglesidebaricon ml-8 mt-4 mr-8 fa-solid fa-box-archive"></i>
@@ -92,7 +96,7 @@
                         <span class="hidden font-roboto font-semibold sm:inline -ml-8">Archive</span>
                     </div>
                 </a>
-                <a href="/trash">
+                <a href="/user/trash">
                 <div
                     class="togglesidebardiv trash w-[75%]  h-12 rounded-r-full  hover:bg-orange-200 hover:rounded-r-full cursor-pointer sm:hover:bg-none sm:bg-none sm:w-[100%] ">
                         <i class=" togglesidebaricon ml-8 mt-4 mr-8 fa-regular fa-trash-can"></i>
@@ -104,9 +108,9 @@
 
             
             
-            <div class="w-[100%] displaysection  flex flex-col">
-                <div class="addnotedisplay  ml-[25rem] p-1 mt-4  rounded-lg shadow-gray-600 shadow-md w-[53%] sm:ml-[5rem] sm:w-[70%]">
-                    <form action="addnote" method="post">
+            <div class="w-[80%] displaysection  flex flex-col">
+                <div class="addnotedisplay  ml-[30rem] p-1 mt-4  rounded-lg shadow-gray-600 shadow-md w-[53%] sm:ml-[5rem] sm:w-[70%]">
+                    <form action="/user/addnote" method="post">
                     <div>
                         <input type="text" name="hii"
                             class=" addnotebox inline outline-none resize-none p-2 cursor-pointer  text-black  w-[100%] h-[2.5rem] bg-white border-none border-white  hover:bg-white hover:border-none active:border-transparent"
@@ -115,13 +119,13 @@
                         <div>
                             <input type="text" name="title"
                             class=" titlebox hidden outline-none resize-none p-2 cursor-pointer sm:-ml-10  text-black  w-[95%] h-[2.5rem] bg-white border-none border-white  hover:bg-white hover:border-none active:border-transparent"
-                            placeholder="Title">
+                            placeholder="Title" required>
                             <a href="#" class=" ml-3 pinicon hidden  sm:hidden"><i class=" fa-solid fa-thumbtack"></i></a>
                             
                         </div>
                     <textarea name="note"
                     class=" addnote hidden p-2 mt-2  border-transparent outline-none overflow-auto resize-y overflow-x-clip  w-[100%] h-32  active:border-transparent "
-                    placeholder="Take a note..."></textarea>
+                    placeholder="Take a note..." required></textarea>
                     <div class=" addnoteicon hidden">
                         <!-- <div class="inline">
                             <a class=" mx-4 sm:mx-1" href="#"><i class="fa-solid fa-user-plus "></i></a>
@@ -190,7 +194,7 @@
         </div>
       
         <div class="text-center text-gray-700 p-1" style="background-color: rgba(0, 0, 0, 0.2);">
-          © 2021 Copyright:
+          © 2022 Copyright:
           <!-- <a class="text-gray-800" href="#">made by anurag</a> -->
         </div>
       </footer>

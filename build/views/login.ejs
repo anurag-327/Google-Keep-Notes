@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Keep-Login</title>
+    <link rel="icon" type="image/x-icon" href="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png">
+    <link rel="stylesheet" href="../../build/styles/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body class=" bg-gradient-to-l font-poppins from-gray-500  to-blue-600">
+    <div class=" m-auto mt-36 w-[23%] min-w-[20rem] bg-white rounded-2xl bg-gradient-to-r from-pink-100 to-blue-200">
+        <div class="m-auto shadow-2xl  rounded-2xl flex flex-col p-4  gap-6">
+            <div class="text-center font-bold text-4xl ">
+                    <h2 class="loginheader"> Login</h2>
+                    <h2 class="hidden signupheader">Sign Up</h2>                
+            </div>
+            <div class=" rounded-lg flex m-0 h-12  text-white">
+                <!-- <div class="w-[50%] bg-gradient-to-r from-blue-600 to-indigo-500 rounded-md justify-center flex"> -->
+                    <button class="loginswitch shadow-md h-full bg-gradient-to-r from-blue-600 to-indigo-500 rounded-md text-white w-[50%] p-1">Login</button>
+                <!-- </div> -->
+                <!-- <div class=" w-[50%] text-black rounded-md justify-center flex"> -->
+                    <button class=" shadow-md w-[50%] text-black rounded-md signupswitch p-1">Sign Up</button>
+                <!-- </div> -->
+            </div>
+            <form action="/loginacc" method="post">
+            <div class="flex flex-col gap-3 w-full loginsection">
+                
+                <div> 
+                    <input type="text" required  class="emailfield border-2 w-full rounded-md p-1 border-gray-400 hover:border-orange-400 outline-none" name="email" placeholder="Email Address">
+                </div>
+                <div>
+                    <input type="password"required  class="passwordfield border-2 w-full rounded-md p-1 border-gray-400 hover:border-orange-400 hover:resize-none outline-none" name="password" placeholder="password">
+                </div>
+                <div class="checkboxfield">
+                    <input type="checkbox" class="" checked>
+                    <label class="">Remember Me</label>
+                </div>
+                <div class="text-center  rounded-lg text-white p-1">  
+                    <button class="signupbutton w-full block  p-2 bg-blue-700 rounded-md">Login</button>
+                </div>
+                <div id="loginfooter" class=" text-center mt-4 ">
+                    <span class="msg">Not a member? <a href="#!"  class=" signupswitchlink gignupbutton text-blue-500 underline">Sign Up now</a></span>
+                </div>
+            </div>
+            </form>
+            <form action="/signupacc" method="post">
+            <div class="flex flex-col gap-3 w-full signupsection hidden mt-[-1rem] ">
+                <div> 
+                    <input type="text" required class="namefield  border-2 w-full rounded-md p-1 border-gray-400 hover:border-orange-400  outline-none" name="name" placeholder="Name">
+                </div>
+                <div> 
+                    <input type="text" required class="emailfield border-2 w-full rounded-md p-1 border-gray-400 hover:border-orange-400 outline-none" name="email" placeholder="Email Address">
+                </div>
+                <div>
+                    <input type="password" required class="passwordfield border-2 w-full rounded-md p-1 border-gray-400 hover:border-orange-400 hover:resize-none outline-none" name="password" placeholder="password">
+                </div>
+                <div>
+                    <input type="password" required class="confirmpasswordfield border-2 w-full  rounded-md p-1 border-gray-400 hover:border-orange-400 hover:resize-none outline-none" name="confirmpassword" placeholder="confirm password">
+                </div>
+                <div class="text-center  rounded-lg text-white mt-2 p-1">  
+                        <button class="signupbutton w-full block  p-2 bg-blue-700 rounded-md">Sign Up</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    <script src="../../build/js/login.js"></script>
+</body>
+</html>

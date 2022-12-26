@@ -28,7 +28,7 @@
                     placeholder="Search">
             </div>
             <div class="ml-16 inline sm:ml-2 ">
-                <a class="sm:hidden"  href="#container"><i class="fa-solid fa-rotate-right ml-6 text-xl  "></i></a>
+                <!-- <a class="sm:hidden"  href="#container"><i class="fa-solid fa-rotate-right ml-6 text-xl  "></i></a>
                 <a class="sm:hidden" href="#"><i class="fa-solid fa-equals ml-6 text-2xl "></i></a>
                 <a class="sm:hidden" href="#"><i class="fa-solid fa-gear ml-6 text-xl "></i></a>
                 <a class="sm:hidden ml-6" href="https://www.google.co.in/intl/en/about/products" target="blank">
@@ -37,10 +37,13 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
-                </a>
-                <a href="#"
-                    class="ml-6 sm:ml-1" target="blank"><img class=" inline w-8 rounded-full" src="./Images/IMG_20220916_122453_736.jpg" alt="profile photo"></a>
+                </a> -->
+                <!-- <a href="#" class="ml-6 sm:ml-1" target="blank"><img class=" inline w-8 rounded-full" src="./Images/IMG_20220916_122453_736.jpg" alt="profile photo"></a> -->
                 <!-- <hr class="mt-3"> -->
+                <div class="inline mr-20 ml-10 bg-pink-300">
+                    <a href="/signout" id="signout" class=" absolute top-2 right-28  float-right text-blue-400 text-4xl ml-6 hover:text-red-900 "><i class="fa-solid fa-right-from-bracket"></i></a>
+                    <label for="signout" class="float-right absolute top-10 right-24 hover:inline hover:text-red-700">Sign Out</label>
+                </div>
             </div>
         </nav>
 
@@ -104,9 +107,9 @@
 
             
             
-            <div class="w-[100%] displaysection  flex flex-col">
-                <div class="addnotedisplay  ml-[25rem] p-1 mt-4  rounded-lg shadow-gray-600 shadow-md w-[53%] sm:ml-[5rem] sm:w-[70%]">
-                    <form action="addnote" method="post">
+            <div class="w-[80%] displaysection  flex flex-col">
+                <div class="addnotedisplay  ml-[30rem] p-1 mt-4  rounded-lg shadow-gray-600 shadow-md w-[53%] sm:ml-[5rem] sm:w-[70%]">
+                    <form action="/user/addnote" method="post">
                     <div>
                         <input type="text" name="hii"
                             class=" addnotebox inline outline-none resize-none p-2 cursor-pointer  text-black  w-[100%] h-[2.5rem] bg-white border-none border-white  hover:bg-white hover:border-none active:border-transparent"
@@ -115,13 +118,13 @@
                         <div>
                             <input type="text" name="title"
                             class=" titlebox hidden outline-none resize-none p-2 cursor-pointer sm:-ml-10  text-black  w-[95%] h-[2.5rem] bg-white border-none border-white  hover:bg-white hover:border-none active:border-transparent"
-                            placeholder="Title">
+                            placeholder="Title" required>
                             <a href="#" class=" ml-3 pinicon hidden  sm:hidden"><i class=" fa-solid fa-thumbtack"></i></a>
                             
                         </div>
                     <textarea name="note"
                     class=" addnote hidden p-2 mt-2  border-transparent outline-none overflow-auto resize-y overflow-x-clip  w-[100%] h-32  active:border-transparent "
-                    placeholder="Take a note..."></textarea>
+                    placeholder="Take a note..." required></textarea>
                     <div class=" addnoteicon hidden">
                         <!-- <div class="inline">
                             <a class=" mx-4 sm:mx-1" href="#"><i class="fa-solid fa-user-plus "></i></a>
@@ -162,13 +165,13 @@
                         <!-- <span class="font-semibold text-yellow-600 "><%= i.updatedAt %></span> -->
                         <div class="text-center justify-evenly flex">
                             <div>
-                                <a href="/deletenote/<%= i.id %>"><i class="delete   cursor-pointer fa-regular fa-trash-can  " data-id="<%= i._id %>"   ></i></a>
+                                <a href="/user/deletenote/<%= i.id %>"><i class="delete   cursor-pointer fa-regular fa-trash-can  " data-id="<%= i._id %>"   ></i></a>
                             </div>
                             <div>
-                                <a href="/editnote/<%=i._id %>"  class="editbtn   ml-4" data-id="<%= i._id %>"><i class="fa-regular fa-pen-to-square"></i></a>
+                                <a href="/user/editnote/<%=i._id %>"  class="editbtn   ml-4" data-id="<%= i._id %>"><i class="fa-regular fa-pen-to-square"></i></a>
                             </div>
                             <div>
-                                <a href="/archivenote/<%=i._id %>"  class="editbtn   ml-4" data-id="<%= i._id %>"><i class="fa-solid fa-box-archive"></i></a>
+                                <a href="/user/archivenote/<%=i._id %>"  class="editbtn   ml-4" data-id="<%= i._id %>"><i class="fa-solid fa-box-archive"></i></a>
                             </div>
                         </div>
                     </div>
@@ -220,7 +223,7 @@
                 <div class="notescontent hover:bg-white   w-60 ml-3 mt-3 rounded-md border-2 bg-wjite  shadow-slate-200 shadow-md" data-id="<%= i._id %>">
                     <div class="notesheader  p-2 w-[100%] h-auto  ">
                         <h4 class="font-bold inline notestitle  text-fuchsia-800" data-id="<%= i._id %>"><%= i.title %></h4>
-                        <a href="/retrievearchive/<%= i.id %>"><i class="delete  float-right mt-1  cursor-pointer fa-solid fa-rotate-left  " data-id="<%= i._id %>"   ></i></a>
+                        <a href="/user/retrievearchive/<%= i.id %>"><i class="delete  float-right mt-1  cursor-pointer fa-solid fa-rotate-left  " data-id="<%= i._id %>"   ></i></a>
                         <!-- <a href="/deletenote/<%= i.id %>"><i class="delete float-right cursor-pointer fa-regular fa-trash-can mt-1 " data-id="<%= i._id %>"   ></i></a> -->
                         <!-- <a href="/editnote/<%=i._id %>"  class="editbtn float-right mr-4" data-id="<%= i._id %>"><i class="fa-regular fa-pen-to-square"></i></a> -->
                         <hr class="my-2">
@@ -264,8 +267,8 @@
                 <div class="notescontent hover:bg-white hover:text-black  w-60 ml-3 mt-3 rounded-md border-2 bg-red-100 text-black  shadow-slate-200 shadow-md" data-id="<%= i._id %>">
                     <div class="notesheader  p-2 w-[100%] h-auto  ">
                         <h4 class="font-bold inline notestitle  " data-id="<%= i._id %>"><%= i.title %></h4>
-                        <a href="/deletetrash/<%= i.id %>"><i class="delete float-right ml-2 cursor-pointer fa-regular fa-trash-can mt-1 " data-id="<%= i._id %>"   ></i></a>
-                        <a href="/retrievetrash/<%= i.id %>"><i class="delete  float-right ml-2 mt-1  cursor-pointer fa-solid fa-rotate-left  " data-id="<%= i._id %>"   ></i></a>
+                        <a href="/user/deletetrash/<%= i.id %>"><i class="delete float-right ml-2 cursor-pointer fa-regular fa-trash-can mt-1 " data-id="<%= i._id %>"   ></i></a>
+                        <a href="/user/retrievetrash/<%= i.id %>"><i class="delete  float-right ml-2 mt-1  cursor-pointer fa-solid fa-rotate-left  " data-id="<%= i._id %>"   ></i></a>
                         <!-- <a href="/editnote/<%=i._id %>"  class="editbtn float-right mr-4" data-id="<%= i._id %>"><i class="fa-regular fa-pen-to-square"></i></a> -->
                         <hr class="my-2">
                         <div class="overflow-hidden min-h-[6rem]">
@@ -320,7 +323,7 @@
         </div>
       
         <div class="text-center text-gray-700 p-1" style="background-color: rgba(0, 0, 0, 0.2);">
-          © 2021 Copyright:
+          © 2022 Copyright:
           <!-- <a class="text-gray-800" href="#">made by anurag</a> -->
         </div>
       </footer>

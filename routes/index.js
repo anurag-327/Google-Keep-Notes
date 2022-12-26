@@ -1,182 +1,127 @@
 const { application } = require('express');
 const express=require('express');
 const router=express.Router();
+const users=require("../model/users");
 const notes=require("../model/note");
 const trashnotes=require("../model/trashnote");
 const archivenotes=require("../model/archivenote");
 
-router.get('/',async function(req,res)
+
+router.get('/',async (req,res) =>
 {
-    const allnotes=await notes.find({});
-    // const trashnote=await trashnotes.find({});
-    // const archivenote=await archivenotes.find({});
-    // console.log(trashnote);
-    res.render('index',{notes:allnotes});
+    if(req.cookies.user_id)
+    {
+        // console.log(req.cookies);
+        const allnotes=await notes.find({userid:req.cookies.user_id});
+        res.redirect('/user');
+    }
+    else
+    {
+        res.render('login');
+    }
 })
 router.get('/home',async (req,res) =>
 {
-    const allnotes=await notes.find({});
-    const trashnote=await trashnotes.find({});
-    const archivenote=await archivenotes.find({});
+    if(req.cookies.user_id)
+    {
+        // console.log(req.cookies);
+        const allnotes=await notes.find({userid:req.cookies.user_id});
+        res.redirect('/user');
+    }
+    else
+    {
+        res.render('login');
+    }
+})
+router.post('/loginacc',async (req,res) =>
+{
+    // console.log(req.body);
+    users.findOne({email:req.body.email,password:req.body.password},function(err,user)
+    {
+        if(err)
+        {
+            console.log(err);
+        }
+        else{
+            if(user)
+            {
+            // console.log(user);
+                res.cookie('user_id',user._id);
+                // console.log(req.cookies.user)
+                res.redirect('/user');
+            }
+            else
+            {
+                res.render('error',{message:"Wrong credentials"});
+            }
+        }
+    })
+})
+router.post('/signupacc',function(req,res)
+{
+    // console.log(req.body);
+    if(req.body.password != req.body.confirmpassword)
+    {
+        console.log(req.body.password,req.body.confirmpassword);
+        console.log("fail");
+        return res.render('error',{message:"Wrong password"});
+    }
+    else
+    {
+        users.findOne({email:req.body.email},async function(err,user)
+        {
+            if(err)
+            console.log(err.message);
+            if(!user)
+            {
+                const createDocument = async () =>
+                {
+                  try{
+                        const newUser=new users({name:req.body.name
+                        ,email:req.body.email,
+                        password:req.body.password})
+                        const result= await newUser.save();
+                        console.log(result);
+                      }catch(err)
+                     {
+                         console.log(err.message);
+                     }
+                }
+                createDocument();
+                return res.redirect('/');
+            }
+           else
+            {
+                console.log("fail");
+                // return res.render('signup');
+                return res.render('error',{message:"Account already exixts"});
+
+            }
+        })
+    }
+    
+})
+router.get('/signout',function(req,res)
+{
+    res.clearCookie("user_id");
+    return res.redirect("/");
+})
+
+router.get('/error',async(req,res) =>
+{
+    res.render('error');
+})
+router.use('/user',require('./user'));
+
+
+router.get('/jshome',async (req,res) =>
+{
+    const allnotes=await notes.find({userid:req.cookies.user_id});
+    const trashnote=await trashnotes.find({userid:req.cookies.user_id});
+    const archivenote=await archivenotes.find({userid:req.cookies.user_id});
     // console.log(trashnote);
     res.render('statichome',{notes:allnotes,trashnotes:trashnote,archivenotes:archivenote});
 })
-router.get('/reminder',async function(req,res)
-{
-    
-    // const trashnote=await trashnotes.find({});
-    // const archivenote=await archivenotes.find({});
-    // console.log(trashnote);
-    res.render('reminder');
-})
-router.get('/details',async function(req,res)
-{
-    
-    // const trashnote=await trashnotes.find({});
-    // const archivenote=await archivenotes.find({});
-    // console.log(trashnote);
-    res.render('details');
-})
-router.get('/archive',async function(req,res)
-{
-    
-    // const trashnote=await trashnotes.find({});
-    const archivenote=await archivenotes.find({});
-    // console.log(trashnote);
-    res.render('archive',{archivenotes:archivenote});
-})
-router.get('/trash',async function(req,res)
-{
-    
-    const trashnote=await trashnotes.find({});
-    // const archivenote=await archivenotes.find({});
-    // console.log(trashnote);
-    res.render('trash',{trashnotes:trashnote});
-})
-router.post('/addnote',(req,res)=>
-{
-    // console.log(req.body);
-    const newnote= new notes({
-        note:req.body.note,
-        title:req.body.title
-    })
-    newnote.save();
-    res.redirect('/');
-})
 
-router.get('/sucess',(req,res)=>
-{
-    res.json("<h1> sucess</h1>")
-})
-router.get('/deletenote/:id',async function(req,res)
-{
-    const id=req.params.id;
-    notes.findByIdAndDelete(id, function (err, docs) {
-        if (err){
-            console.log(err);
-            
-        }
-        else
-        {
-            if(docs)
-            {
-
-                // console.log( docs);
-                const trash=new trashnotes({
-                    note:docs.note,
-                    title:docs.title});
-                    trash.save();
-            }
-        }
-     });
-    // console.log(req.params);
-    res.redirect('/');
-})
-
-router.get('/archivenote/:id',async function(req,res)
-{
-    const id=req.params.id;
-    notes.findByIdAndDelete(id, function (err, docs) {
-        if (err){
-            console.log(err);
-            
-        }
-        else
-        {
-            // console.log( docs);
-            const archive=new archivenotes({
-                note:docs.note,
-                title:docs.title});
-            archive.save();
-        }
-     });
-    // console.log(req.params);
-    res.redirect('/');
-})
-router.get('/retrievearchive/:id',async function(req,res)
-{
-    const id=req.params.id;
-    archivenotes.findByIdAndDelete(id, function (err, docs) {
-        if (err){
-            console.log(err);
-            
-        }
-        else
-        {
-            // console.log( docs);
-            const retrieve=new notes({
-                note:docs.note,
-                title:docs.title});
-            retrieve.save();
-        }
-     });
-    res.redirect('/archive');
-})
-router.get('/retrievetrash/:id',async function(req,res)
-{
-    const id=req.params.id;
-    trashnotes.findByIdAndDelete(id, function (err, docs) {
-        if (err){
-            console.log(err);
-            
-        }
-        else
-        {
-            // console.log( docs);
-            const retrieve=new notes({
-                note:docs.note,
-                title:docs.title});
-            retrieve.save();
-        }
-     });
-    res.redirect('/trash');
-})
-
-router.get('/deletetrash/:id',async function(req,res)
-{
-    const id=req.params.id;
-    trashnotes.findByIdAndDelete(id, function (err, docs) {
-        if (err){
-            console.log(err);
-            
-        }
-     });
-    // console.log(req.params);
-    res.redirect('/');
-})
-
-
-router.get('/editnote/:id',async function(req,res)
-{
-    const note= await notes.findOne({_id:req.params.id});
-    // console.log(note);
-    res.render("edit",{note:note});
-})
-router.post('/editnote',async(req,res) =>
-{
-    // console.log(req.body);
-    const data=await notes.findByIdAndUpdate(req.body.id,{note:req.body.note,title:req.body.title})
-    res.redirect('/');
-})
 
 module.exports=router;

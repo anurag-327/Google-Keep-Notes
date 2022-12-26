@@ -10,6 +10,10 @@ const trashnoteschema=new mongoose.Schema(
             type:String,
             required:true
         }, 
+        userid:{
+            type: mongoose.Schema.Types.ObjectId,
+            ref:'users'
+       },
     },
     {
         timestamps:true

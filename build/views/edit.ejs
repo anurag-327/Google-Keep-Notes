@@ -13,9 +13,9 @@
                 <span class=" navheading  mt-1  font-roboto text-xl sm:hidden ">Edit</span>
             </div>
             <div class="inline ml-16 sm:ml-2 ">
-                <button>
+                <!-- <button>
                     <i class="fa-solid fa-magnifying-glass absolute top-6 left-[58rem] sm:hidden"></i>
-                </button>
+                </button> -->
                 <input type="text"
                     class="outline-none resize-none cursor-pointer p-2 w-[54%] h-[3rem] bg-gray-100 rounded-lg shadow-sm hover:bg-white hover:border-none active:border-transparent sm:w-[60%]"
                     placeholder="Search">
@@ -46,17 +46,17 @@
             <h3 class="text-white">Edit your notes here</h3>
         </div> 
         <div class="p-3">
-            <form action="/editnote" method="post">
+            <form action="/user/editnote" method="post">
                 <div>
                     <label>Title</label>
                     <input type="text" name="title"
                 class=" edittitlebox inline outline-none resize-none p-2 rounded-lg shadow-sm cursor-pointer  text-black  w-full h-[2.5rem] bg-slate-100 border-none border-white  hover:bg-white hover:border-none active:border-transparent"
-                placeholder="Take a note..." value="<%= note.title %>">
+                placeholder="Take a note..." value="<%= note.title %>" required>
                 </div>
-                <div class="mt-5">
+                <div class="mt-5 ">
                     <label>Note</label>
-                    <textarea name="note" class="editnotebox text-red-700 rounded-lg bg-slate-100 shadow-sm outline-none resize-none p-2 w-full hover:bg-white hover:border-none active:border-transparent"   
-                      ><%= note.note %></textarea>
+                    <textarea name="note" class="editnotebox overflow-scroll text-red-700  rounded-lg bg-slate-100 shadow-sm outline-none resize-none p-2 w-full hover:bg-white hover:border-none active:border-transparent"   
+                      required><%= note.note %></textarea>
                 </div>
                 <div>
                     <input type="text" name="id"
