@@ -1,7 +1,7 @@
 const express=require('express');
 const app=express();
 const cookieParser=require('cookie-parser');
-const port=process.env.port|| 5000;
+const port=process.env.port|| 8000;
 const path=require('path');
 app.use(express.urlencoded());
 app.use(cookieParser());
