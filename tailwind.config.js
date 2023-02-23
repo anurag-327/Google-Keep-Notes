@@ -45,8 +45,5 @@ module.exports =
     //   // => @media (max-width: 639px) { ... }
     // }
   },
-  plugins: [{
-    tailwindcss: {},
-    autoprefixer: {},
-  },],
+  plugins: [],
 }

@@ -7,7 +7,7 @@ app.use(express.urlencoded());
 app.use(cookieParser());
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'./build/views'));
-app.use(express.static(__dirname));
+app.use(express.static(__dirname,'/build'));
 app.use('/',require("./routes/index"));
 app.use( (req,res,next)=>{
     res.render('error',{message:"Page doesnot exist"});
